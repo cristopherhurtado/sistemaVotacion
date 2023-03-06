@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    padding: 10px;
+}
+
+section {
+    border: solid 1px;
+    padding: 10px;
+    width: 400px;
+    border-radius: 10px;
+    background-color: gainsboro;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+label {
+    margin-top: 6px;
+}
+
+input {
+    height: 20px;
+}
+
+select {
+    height: 25px;
+}
+
+span {
+    margin-bottom: 20px;
+}
+
+#btnEnviar {
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    background-color: green;
+    font-size: 17px;
+}
+
+.warnings {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    color: red;
+    padding-top: 20px;
+    font-weight: bold;
+}
