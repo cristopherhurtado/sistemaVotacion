@@ -1,6 +1,6 @@
+
 const select = document.getElementById('region');
-
-
+//COMSUMIR LOS REGISTROS DE REGIONES Y COMUNA
 select.addEventListener('click', () => {
 
     const url = `http://127.0.0.1/sistemaVotaciones/backend/src/controlador/region.php`;
@@ -15,8 +15,8 @@ select.addEventListener('click', () => {
 
             const datos = JSON.parse(this.responseText);
             
+                //CARGA DE REGIONES A SELECT 
                 const regiones = datos.map(region => region.REGION);
-                
                 for (reg of regiones) {
                     const option = document.createElement('option');
                     option.value = reg;
@@ -24,7 +24,7 @@ select.addEventListener('click', () => {
                     select.appendChild(option);
                 }  
                   
-                
+                //CARGA DE COMUNAS SEGUN LA REGION SELECCIONADA
                 const selectValue = document.getElementsByName('region')[0].value;
                 const comunas = datos.find(item => item.REGION === selectValue)?.COMUNAS; 
                 const selectCom = document.getElementById('comuna');
@@ -33,7 +33,7 @@ select.addEventListener('click', () => {
                     option.value = com;
                     option.textContent = com;
                     selectCom.appendChild(option);
-                }                   
+                }                  
         }
     };
 });
@@ -41,7 +41,7 @@ select.addEventListener('click', () => {
 
 
 const selectCandi = document.getElementById('candidato');
-
+//CONSUMIR LOS REGISTROS DE CANDIDATOS
 selectCandi.addEventListener('click', () => {
   
     const url = `http://127.0.0.1/sistemaVotaciones/backend/src/controlador/candidato.php`;
@@ -56,6 +56,7 @@ selectCandi.addEventListener('click', () => {
             
             const datos = JSON.parse(this.responseText);
             
+            //CARGA DE CANDIDATOS A SELECT
             const candidatos = datos.map(candidato => candidato.nombre);
             for (candi of candidatos) {
                 const option = document.createElement('option');
@@ -66,3 +67,6 @@ selectCandi.addEventListener('click', () => {
         }
     };
 });
+
+
+

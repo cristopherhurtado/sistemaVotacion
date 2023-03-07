@@ -1,6 +1,6 @@
 const form = document.querySelector("#formulario");
 const parrafo = document.querySelector("#warnings");
-
+const parrafoDuplicado = document.querySelector("#duplicado")
 
 form.addEventListener('submit', e => {
   e.preventDefault()
@@ -8,6 +8,7 @@ form.addEventListener('submit', e => {
   let warnings = "";
   let msg = false;
   parrafo.innerHTML = "";
+  parrafoDuplicado.innerHTML = "";
   
   
   //VALIDACION INPUT NOMBRE Y APELLIDO (NO DEBE QUEDAR EN BLANCO)
@@ -136,11 +137,48 @@ form.addEventListener('submit', e => {
         msg = true
       }
 
-    // INCRUSTAR MENSAJE DE VALIDACION 
+    // INCRUSTAR MENSAJE DE VALIDACION Y ENVIO DE FORMULARIO 
     if (msg){
         parrafo.innerHTML = warnings;
-    }
+    }else {
+      //VALIDACION RUT DUPLICADO
+      const url = `http://127.0.0.1/sistemaVotaciones/backend/src/controlador/votante.php`;
 
+      const api = new XMLHttpRequest();
+      api.open('GET', url, true);
+      api.send();
+      
+      api.onreadystatechange = function() {
+        if (this.status == 200 && this.readyState == 4) {
+          const datos = JSON.parse(this.responseText);
+          const rutValue = document.getElementsByName('rut')[0].value;
+          const votanteEncontrado = datos.find(item => item.rut === rutValue);
+          if (votanteEncontrado) {
+            rut.style.border = '1px solid red';
+            parrafoDuplicado.innerHTML = `EL RUT INGRESADO YA SUFRAGO`;
+
+          } else {
+            //CREACION DEL POST LUEGO DE LA VALIDACION
+            const formData = new FormData(form);
+
+                  var xhr = new XMLHttpRequest();
+                  xhr.open("POST", "http://127.0.0.1/sistemaVotaciones/backend/src/controlador/votante.php", true);
+                  xhr.onload = function() {
+                    if (xhr.status === 200) {
+                      console.log(xhr.responseText);
+                    } else {
+                      console.error(xhr.statusText);
+                    }
+                  };
+                  xhr.send(formData);
+                  
+                  parrafoDuplicado.innerHTML = `Gracias pos su votacion`;
+                  //RESET FORMULARIO 
+                  form.reset();
+          }
+        }
+      };
+    }
 });
 
 

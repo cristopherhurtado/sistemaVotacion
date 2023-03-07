@@ -52,3 +52,11 @@ span {
     padding-top: 20px;
     font-weight: bold;
 }
+
+.duplicado {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    color: blue;
+    font-weight: bold;
+}

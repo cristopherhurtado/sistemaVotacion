@@ -1,10 +1,10 @@
 <?php
 
 $db = [
-    'host' => 'localhost',
-    'username' => 'root',
-    'password' => 'passwordroot',
-    'db' => 'votacion' //Cambiar al nombre de tu base de datos
-];
+        'host' => '', //SERVIDOR BBDD (localhost)
+        'username' => '', //USUARIO MOTOR BBDD
+        'password' => '', //PASSWORD MOTOR BBDD
+        'db' => 'votacion' //NOMBRE BBDD
+    ];
 
 ?>

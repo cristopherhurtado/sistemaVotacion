@@ -400,31 +400,22 @@ VALUES
     (3,'steve jobs'),
     (4,'mark zuckerberg');
 
-DROP TABLE IF EXISTS `como`;
 
-CREATE TABLE `como` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `web` varchar(64),
-  `tv` varchar(64),
-  `rrss` varchar(64),
-  `amigo` varchar(64)
-) DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
     
 DROP TABLE IF EXISTS `votante`;
 
 CREATE TABLE `votante` (
   `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `nombre` varchar(100) NOT NULL,
+  `nombre` varchar(250) NOT NULL,
   `alias` varchar(100) NOT NULL,
   `rut` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `idRegion` int(11) NOT NULL,
-  `idComuna` int(11) NOT NULL,
-  `idCandidato` int(11) NOT NULL,
-  `idComo` int(11) NOT NULL,
-   FOREIGN KEY (idRegion) REFERENCES region(id),
-   FOREIGN KEY (idComuna) REFERENCES comuna(id),
-   FOREIGN KEY (idCandidato) REFERENCES candidato(id),
-   FOREIGN KEY (idComo) REFERENCES como(id)
+  `email` varchar(250) NOT NULL,
+  `region` varchar(250) NOT NULL,
+  `comuna` varchar(250) NOT NULL,
+  `candidato` varchar(100) NOT NULL,
+  `web` varchar(64),
+  `tv` varchar(64),
+  `rrss` varchar(64),
+  `amigo` varchar(64)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 

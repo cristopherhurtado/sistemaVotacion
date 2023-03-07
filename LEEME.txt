@@ -1,0 +1,91 @@
+/*
+Proyecto: Sistema de votacion
+Autor: Cristopher Hurtado
+Nota: Prueba tecnica empresa Desis Ltda.
+*/
+----------------------------------------
+	TECNOLOGIAS UTILIZADAS
+----------------------------------------
+
+ 1. HTML5
+ 2. CSS3
+ 3. javaScript
+ 4. AJAX
+ 5. PHP = version 8.2.0
+ 6. XAMPP = version 3.3.0
+ 7. MYSQL = Workbench 8.0
+ 8. Visual Code
+
+----------------------------------------
+	INSTALACION DEL PROYECTO
+----------------------------------------
+
+1. La carpeta descargada desde GitHub: SistemaVotaciones debe ser copiada dentro de la siguiente ruta.
+   DISCO LOCAL: /xampp/htdocs/SistemaVotaciones
+
+   1.1. Cuando el archivo esta en la carpeta indicada debe presionar START en el software XAMPP en el modulo APACHE. 
+        Para iniciar el servidor local
+
+
+2. El script de la BBDD esta ubicado en la carpeta SQL y debe ser ejecutado en un motor MySql.
+
+   2.1. Las credenciales del archivo config.php que esta ubicado en la carpeta MODELO dentro de esta ruta /backend/src/modelo/config.php deben ser cambiadas, 
+        segun sus credenciales al momento de instalar motor de BBDD
+
+   2.1.2. Una vez ejecutado el script debe comprobar la conexion ingresando al siguiente LINK donde podra ver las regiones cargadas,
+          de lo contrario debe revisar las credenciales del archivo config.php
+
+	LINK: http://127.0.0.1/sistemaVotaciones/backend/src/controlador/region.php
+
+
+3. Para ingresar al formulario y realizar las validaciones solicitadas los pasos son:
+
+   3.1. Ingresar a la capeta PUBLIC que esta ubicada en /frontend/public/index.html si esta utilizando VISUAL CODE con el boton secundarion al archivo index.html dar un click en 
+        open with live server (instalar extension Live Server).
+   
+   3.1.2. Ahora pueden realizar las pruebas necesarias del proyecto, las cuales fueron implementadas de acuerdo a instrucciones de la prueba tecnica. 
+
+
+
+4. Cada funcion o estructura importe del codigo esta coemntada para su revision e claridad en la ejecucion.
+
+-----------------------------------------
+	ESTRUCTURA DE CARPETAS
+-----------------------------------------
+
+ RAIZ:
+
+	/SQL
+	   script BBDD
+	   /frontend
+    		   /backend
+			   LEEME.txt
+
+ FROTEND:
+	
+	/frontend
+		/css
+		   style.css
+			/js
+			   ajax.js
+			   validarForm.js
+						/public
+				   			index.html
+
+ BACKEND:
+
+	/backend
+	   index.php
+			/controlador
+		  		 candidato.php
+		   		 region.php
+		         votante.php
+						/modelo
+			   				config.php
+			   				utils.php
+
+
+
+
+
+
